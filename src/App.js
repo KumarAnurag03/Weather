@@ -10,9 +10,11 @@ function App() {
     async function temp(){
       const instance = axios.create();
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=7f204b0d1bcb330534811e0d775cd3f7`
+      const url2= `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=7f204b0d1bcb330534811e0d775cd3f7`
        try {
         const response = await instance.get(url);
-        console.log(response);
+        const response2= await instance.get(url2);
+        console.log(response2.data.list);
         setweather(response);
        } catch (error) {
         setweather(null);
@@ -31,7 +33,11 @@ function App() {
 
   return(
     <div className='app' 
-    style={{backgroundImage:`url(${MyBackgroundImage})`}}>                                                                                                                                                                                                    >
+    style={{backgroundImage:`url(${MyBackgroundImage})`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+    }}>                                                                                                                                                                                                    >
       <div className='search-bar'>
         <input type="search" 
           placeholder='Enter Your City'
