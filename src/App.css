@@ -79,9 +79,8 @@ h1{
 }
 
 .app .desc {
-  position: relative;
-  top: -50%;
-  right: -80%;
+  top: -40%;
+  right: -30%;
 }
 
 .app .bottom {
